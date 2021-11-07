@@ -10,24 +10,45 @@ button {
   border-radius: 20px;
   color: wheat;
   font-size: 30px;
+  display: none;
+  text-decoration: none;
+  margin-left: 10%;
 }
+
+
 
 button:hover {
   background-color: tomato;
 }
 
-#level-title {
+.level-title{
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
   color: #FEF2BF;
 }
 
+.lp {
+  display: block;
+}
+
+.hp {
+  display: none;
+}
+
+
+
 .container {
   display: block;
   width: 50%;
   margin: auto;
+  
+}
 
+.button {
+  margin: auto;
+  text-align: center;
+  align-items: center;
 }
 
 .btn {
@@ -63,4 +84,18 @@ button:hover {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+@media (max-width: 900px) {
+  button {
+    display: block;
+  }
+
+  .lp {
+    display: none;
+  }
+
+  .hp {
+    display: block;
+  }
 }

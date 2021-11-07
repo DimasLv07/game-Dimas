@@ -8,7 +8,7 @@ var started = false
 
 $(document).on("keypress", function() {
     if (!started) {
-        $("#level-title").html("Level " + level)
+        $(".level-title").html("Level " + level)
         
         nextSequence()
         
@@ -23,7 +23,7 @@ $(document).on("keypress", function() {
 
 $("button").on("click", function() {
     if (!started) {
-        $("#level-title").html("Level " + level)
+        $(".level-title").html("Level " + level)
         
         nextSequence()
         
@@ -51,7 +51,7 @@ function nextSequence() {
     
     userClickedPattern = [];
     level += 1;
-    $("#level-title").html("Level " + level);
+    $(".level-title").html("Level " + level);
     var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour)
@@ -78,9 +78,6 @@ function showFullPattern() {
 
 
 function animatePress(currentColor) {
-
-    
-
     $("#" + currentColor).addClass("pressed"); setTimeout(() => {
         $(".btn").removeClass("pressed");
     }, 100)
@@ -100,17 +97,18 @@ function checkAnswer(currentLevel) {
         } 
         
     } else {
-        startOver()
+        
         var soundWrong = new Audio("sounds/wrong.mp3")
             soundWrong.play()
-            $("#level-title").html("Game Over, Press Any Key to Restart")
+            $(".level-title").html("Game Over, Press the Start Over button or any key to restart")
             $("body").addClass("game-over"); setTimeout(function(){
                 $("body").removeClass("game-over")
             }, 200)
         console.log("wrong")
         $("button").html("Start Over")
+        startOver()
         $("button").on("click", function() {
-            startOver()
+            $("button").html("Start")
         })
     }
 }
@@ -120,4 +118,5 @@ function startOver() {
     gamePattern = [];
     level = 0;
     started = false;
+    
 }
