@@ -3,6 +3,19 @@ body {
   background-color: #011F3F;
 }
 
+button {
+  background-color: orange;
+  border: none;
+  padding: 50px 150px;
+  border-radius: 20px;
+  color: wheat;
+  font-size: 30px;
+}
+
+button:hover {
+  background-color: tomato;
+}
+
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;

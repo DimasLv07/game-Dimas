@@ -13,9 +13,22 @@ $(document).on("keypress", function() {
         nextSequence()
         
         started = true
+        
     }
 
+    
+
    
+})
+
+$("button").on("click", function() {
+    if (!started) {
+        $("#level-title").html("Level " + level)
+        
+        nextSequence()
+        
+        started = true
+    }
 })
 
 function playSound(audio) {
@@ -95,6 +108,10 @@ function checkAnswer(currentLevel) {
                 $("body").removeClass("game-over")
             }, 200)
         console.log("wrong")
+        $("button").html("Start Over")
+        $("button").on("click", function() {
+            startOver()
+        })
     }
 }
 
